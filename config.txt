@@ -1,2 +1,2 @@
-latestVideoTitle=LATEST RELEASE: TO STARK
+latestVideoTitle=LATEST RELEASE: TONY STARK
 latestVideoUrl=https://www.youtube.com/watch?v=CvO-QaRzaBk
