@@ -1,0 +1,652 @@
+/*
+ * Custom override stylesheet for the REVIVECHIZL site.
+ *
+ * These rules simplify the design to strictly use solid black and red colours.
+ * Background patterns, gradients and blurs have been removed. The intro
+ * screen now fades out cleanly without blurring the artwork. The large
+ * letter "R" on the intro screen is rendered with a solid red fill
+ * instead of a gradient or drop-shadow.
+ */
+
+/* Remove the patterned overlays from the page. */
+.grunge-layer,
+body:before,
+body:after {
+  background: none !important;
+  opacity: 1 !important;
+}
+
+/* Ensure the site shell uses a plain black background instead of a radial gradient. */
+.site-shell {
+  background: #000 !important;
+}
+
+/* Simplify the video frame to have a solid black background with a red border. */
+.video-frame {
+  background: #000 !important;
+  border: 1px solid var(--red) !important;
+}
+
+/* Render the intro 'R' as a clean, solid red character. Remove gradients, drop shadows and filters. */
+.intro-r {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: var(--red) !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* Remove the blur effect during the intro exit transition to make the fade smoother. */
+.intro-screen.exiting {
+  filter: none !important;
+}
+.video-error {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  padding: 24px;
+  color: var(--red);
+  background: #000;
+  border: 1px solid var(--red);
+  text-align: center;
+  letter-spacing: .08em;
+}
+
+.video-error span,
+.video-error small {
+  display: block;
+  max-width: 90%;
+  letter-spacing: 0;
+}
+
+/* Final red/interaction updates */
+:root {
+  --red: #ff0000;
+  --red2: #b00000;
+  --muted: #7a0000;
+}
+
+#embers { display: none !important; }
+
+.enter-text,
+.enter-line,
+.platform,
+.platform:hover,
+.listen-card:hover .platform,
+.ticket-btn:hover,
+.listen-card:hover,
+.release:after,
+.top-logo {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.enter-line { box-shadow: none !important; }
+
+.logo-r {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--red);
+  font-family: inherit;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.logo-r:hover { transform: scale(1.04); }
+
+.bio-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  max-width: 620px;
+  margin-bottom: 34px;
+}
+
+.artist-portrait {
+  width: 150px;
+  height: 190px;
+  object-fit: cover;
+  border: 1.5px solid var(--red);
+  background: #000;
+}
+
+.bio-row p {
+  margin: 0 !important;
+  max-width: 420px;
+}
+
+.sound-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, .88);
+}
+
+.sound-modal.is-hidden { display: none; }
+
+.sound-modal__panel {
+  width: min(520px, 100%);
+  border: 2px solid var(--red);
+  background: #000;
+  color: var(--red);
+  padding: 34px;
+  text-align: center;
+}
+
+.sound-modal__panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  letter-spacing: .08em;
+}
+
+.sound-modal__panel p {
+  margin: 0 0 28px;
+  color: var(--red);
+  letter-spacing: 0;
+}
+
+.sound-modal__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.sound-modal__actions button {
+  min-width: 120px;
+  padding: 12px 18px;
+  border: 2px solid var(--red);
+  background: #000;
+  color: var(--red);
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: .22em;
+  cursor: pointer;
+}
+
+.sound-modal__actions button:hover {
+  background: var(--red);
+  color: #000;
+}
+
+@media(max-width: 560px) {
+  .bio-row {
+    grid-template-columns: 1fr;
+  }
+
+  .artist-portrait {
+    width: 135px;
+    height: 170px;
+  }
+}
+
+
+/* Prompt-first entry flow */
+.prompt-gated {
+  display: none !important;
+}
+
+.sound-modal {
+  z-index: 100 !important;
+}
+
+.sound-modal__panel {
+  box-shadow: none !important;
+}
+
+.now-playing {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 245px;
+  border: 1.5px solid var(--red);
+  background: #000;
+  color: var(--red);
+  padding: 12px 14px;
+  letter-spacing: .12em;
+}
+
+.now-playing.is-hidden {
+  display: none !important;
+}
+
+.now-playing__toggle {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--red);
+  background: #000;
+  color: var(--red);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.now-playing__toggle:hover {
+  background: var(--red);
+  color: #000;
+}
+
+.now-playing__copy {
+  display: grid;
+  gap: 2px;
+}
+
+.now-playing__copy span {
+  font-size: .72rem;
+  opacity: .78;
+}
+
+.now-playing__copy strong {
+  font-size: 1rem;
+  letter-spacing: .18em;
+}
+
+.now-playing__copy em {
+  font-size: .82rem;
+  font-style: normal;
+  letter-spacing: .12em;
+}
+
+.now-playing.needs-audio-file:after {
+  content: "ADD assets/song.mp3";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -24px;
+  font-size: .65rem;
+  color: var(--red);
+  letter-spacing: .08em;
+}
+
+.video-fallback {
+  cursor: pointer;
+}
+
+.video-frame iframe {
+  display: none !important;
+}
+
+@media(max-width: 560px) {
+  .now-playing {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    min-width: 0;
+  }
+}
+
+/* Transmission prompt polish */
+.sound-modal__panel {
+  position: relative;
+  overflow: hidden;
+  border-width: 1.5px;
+  padding: 38px 34px 34px;
+  text-transform: uppercase;
+}
+
+.sound-modal__panel:before,
+.sound-modal__panel:after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: var(--red);
+  opacity: .9;
+}
+
+.sound-modal__panel:before { top: 16px; }
+.sound-modal__panel:after { bottom: 16px; }
+
+.sound-modal__panel h2 {
+  font-size: clamp(1.35rem, 5vw, 2.15rem);
+  letter-spacing: .16em;
+  line-height: 1.08;
+}
+
+.sound-modal__panel p {
+  display: inline-block;
+  margin-bottom: 26px;
+  padding: 6px 14px;
+  border: 1px solid var(--red);
+  font-weight: 700;
+  letter-spacing: .34em;
+}
+
+/* Restore actual latest-video imagery instead of text-only fallback */
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  background: #000 url('assets/video-fallback.svg') center/cover no-repeat !important;
+}
+
+.video-fallback.has-thumb {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.video-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: .9;
+}
+
+.video-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.68));
+}
+
+.video-title,
+.play-button,
+.watch-copy {
+  z-index: 2;
+}
+
+/* REVIVECHIZL simplified config-driven homepage */
+.prompt-gated {
+  display: grid !important;
+}
+
+.sound-modal,
+.now-playing,
+.bio-row,
+.artist-portrait {
+  display: none !important;
+}
+
+.site-shell {
+  opacity: 1;
+}
+
+.hero {
+  align-items: start;
+}
+
+.hero-copy {
+  align-self: center;
+}
+
+.next-up,
+.video-brand,
+.video-next {
+  margin: 0;
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: .22em;
+}
+
+.next-up {
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
+}
+
+.video-section {
+  width: 100%;
+  max-width: 620px;
+}
+
+.video-brand,
+.video-next {
+  display: none;
+}
+
+.latest-video-heading {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: clamp(1.3rem, 2.4vw, 2.1rem);
+  line-height: 1.08;
+  letter-spacing: .16em;
+}
+
+.links-section {
+  display: grid;
+  justify-items: start;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.links-section .icon-row {
+  margin-bottom: 0;
+}
+
+.video-frame iframe {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media(max-width: 900px) {
+  .site-shell {
+    padding-top: 72px;
+  }
+
+  .top-logo {
+    display: none !important;
+  }
+
+  .section-pad,
+  .hero,
+  .hero-copy,
+  .video-section,
+  .links-section,
+  .listen,
+  .site-footer {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 34px;
+    min-height: 0;
+    padding-top: 36px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .hero h1 {
+    margin-left: auto;
+    margin-right: auto;
+    overflow-wrap: anywhere;
+  }
+
+  .next-up,
+  .video-brand,
+  .video-next,
+  .latest-video-heading {
+    text-align: center;
+  }
+
+  .video-brand,
+  .video-next {
+    display: block;
+  }
+
+  .video-brand {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .video-next {
+    font-size: .98rem;
+    margin-bottom: 22px;
+  }
+
+  .video-section {
+    max-width: 640px;
+  }
+
+  .links-section {
+    padding-top: 34px;
+  }
+
+  .icon-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  .ticket-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .listen {
+    padding-top: 54px;
+  }
+
+  .listen h2 {
+    text-align: center;
+  }
+
+  .listen-grid {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .listen-card {
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-footer {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 560px) {
+  body,
+  .site-shell,
+  .section-pad,
+  .hero,
+  .video-section,
+  .links-section,
+  .listen,
+  .listen-grid,
+  .site-footer {
+    overflow-x: hidden;
+  }
+
+  .section-pad,
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 14vw, 3.4rem);
+  }
+
+  .next-up,
+  .video-next {
+    font-size: .9rem;
+    letter-spacing: .14em;
+  }
+
+  .latest-video-heading {
+    font-size: 1.22rem;
+    letter-spacing: .11em;
+  }
+
+  .video-frame {
+    width: 100%;
+    max-width: 100%;
+    height: min(56vw, 260px);
+    min-height: 190px;
+  }
+
+  .icon-row {
+    gap: 24px;
+  }
+
+  .ticket-btn {
+    width: min(250px, 100%);
+  }
+}
+
+
+/* Final mobile fixes: keep the main heading only once and center footer exactly */
+.video-brand,
+.video-next {
+  display: none !important;
+}
+
+.site-footer {
+  width: 100%;
+  max-width: var(--max);
+  left: auto !important;
+  right: auto !important;
+  text-align: center;
+}
+
+@media(max-width: 900px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-footer {
+    width: calc(100% - 36px);
+    max-width: calc(100% - 36px);
+    margin: 52px auto 34px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .site-footer span {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media(max-width: 560px) {
+  .site-footer {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: .78rem;
+    letter-spacing: .1em;
+  }
+}
